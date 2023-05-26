@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import "./public/darkMode.css";
 
 function Square({ value, onSquareClick }) {
   return (
@@ -56,6 +57,7 @@ function Board({ xIsNext, squares, onPlay }) {
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
+  const [theme, setTheme] = useState("light");
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
@@ -83,12 +85,36 @@ export default function Game() {
     );
   });
 
+  function ThemeSwitch() {
+    const toggleTheme = () => {
+      if (theme === "light") {
+        setTheme("dark");
+      } else {
+        setTheme("light");
+      }
+    };
+    useEffect(() => {
+      document.body.className = theme;
+    }, [theme]);
+
+    return (
+      <div className={`ThemeSwitch ${theme}`}>
+        <button onClick={toggleTheme}>Toggle Theme</button>
+      </div>
+    );
+  }
+
   return (
     <div className="game">
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
+        <div className="theme">
+          <ol>
+            <ThemeSwitch />
+          </ol>
+        </div>
         <ol>{moves}</ol>
       </div>
     </div>
