@@ -1,0 +1,19 @@
+.dark {
+  background-color: #333;
+  color: #fff;
+  .game-board .board-row .square {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+}
+
+.light {
+  background-color: #fff;
+  color: #333;
+  .game-board .board-row .square {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+  }
+}
