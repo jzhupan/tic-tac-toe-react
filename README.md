@@ -1,3 +1,3 @@
 # tic-tac-toe-react
 
-Tic tac toe React
+Recreating tic-tac-toe while learning React.
