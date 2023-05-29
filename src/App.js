@@ -69,31 +69,32 @@ export default function Game() {
     setCurrentMove(nextMove);
   }
 
+  let currentDescription =
+    document.getElementsByClassName("currentMoveStatus").innerHTML;
+
   const moves = history.map((squares, move) => {
     let description;
-    let currentDescription =
-      document.getElementsByClassName("currentMoveStatus").innerHTML;
     currentDescription = "You are at move #" + move;
 
     if (move > 0) {
-      description = "<Go to move #>" + move;
+      description = "Back to move#" + " " + move;
     } else {
-      description = "Go to game start";
+      description = "Restart moves";
     }
 
     return (
       <div>
-        <div className="currentMoveStatus">{currentDescription}</div>
-        <li key={move}>
+        <lo key={move}>
           <button onClick={() => jumpTo(move)}>{description}</button>
-        </li>
+        </lo>
       </div>
     );
   });
 
   return (
     <div className="game">
-      <div className="game-board">
+      <div className="game-board currentMoveStatus">
+        {currentDescription}
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
