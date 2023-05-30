@@ -3,7 +3,11 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   margin: 20px;
   padding: 0;
 }
@@ -60,7 +64,7 @@ body {
   background: #fff;
   border: 1px solid #999;
   float: left;
-  font-size: 24px;
+  font-size: 70px;
   font-weight: bold;
   line-height: 34px;
   height: 34px;
@@ -68,7 +72,8 @@ body {
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 75px;
+  height: 75px;
 }
 
 .board-row:after {
@@ -79,12 +84,56 @@ body {
 
 .status {
   margin-bottom: 10px;
+  text-align: center;
+  font-size: 35px;
 }
 .game {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-info {
-  margin-left: 20px;
+  margin: 20px 0px 0px 40px;
+  height: 200px;
+}
+
+.board-container {
+  margin-top: 50px;
+}
+
+.currentMoveStatus {
+  font-size: 25px;
+  position: static;
+}
+
+.textAnimation {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  font-size: 5em;
+  color: #222;
+}
+
+.textAnimation::before {
+  content: attr(data-text);
+  position: absolute;
+  color: #fff;
+  width: 350px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid #fff;
+  animation: animate 8s linear infinite;
+  filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 53px #fff);
+}
+@keyframes animate {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
 }

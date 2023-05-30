@@ -115,15 +115,10 @@ export default function Game() {
   return (
     <div className="game">
       <div className="game-board currentMoveStatus">
-        {currentDescription}
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-        <div className="theme">
-          <ol>
-            <ThemeSwitch />
-          </ol>
-        </div>
+        <div className="currentMoveStatus">{currentDescription}</div>
         <ol>{moves}</ol>
       </div>
     </div>
