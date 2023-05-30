@@ -1,14 +1,18 @@
 * {
   box-sizing: border-box;
 }
+.center {
+  margin-top: -40px;
+  justify-content: center;
+}
 
 body {
   font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  margin: 20px;
+  min-height: 50vh;
+  margin: 10px auto;
   padding: 0;
 }
 
@@ -47,17 +51,8 @@ code {
 }
 
 ul {
-  padding-left: 20px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
+  margin-top: -15px;
+  padding: 5px;
 }
 
 .square {
@@ -78,7 +73,7 @@ body {
 
 .board-row:after {
   clear: both;
-  content: '';
+  content: "";
   display: table;
 }
 
@@ -94,8 +89,8 @@ body {
 }
 
 .game-info {
-  margin: 20px 0px 0px 40px;
-  height: 200px;
+  margin: 50px 0px 0px 40px;
+  height: 272px;
 }
 
 .board-container {
@@ -103,37 +98,11 @@ body {
 }
 
 .currentMoveStatus {
-  font-size: 25px;
-  position: static;
-}
-
-.textAnimation {
-  margin: auto;
+  font-size: 20px;
   text-align: center;
-  position: relative;
-  font-size: 5em;
-  color: #222;
+  margin-bottom: 20px;
 }
 
-.textAnimation::before {
-  content: attr(data-text);
-  position: absolute;
-  color: #fff;
-  width: 350px;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 4px solid #fff;
-  animation: animate 8s linear infinite;
-  filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 53px #fff);
-}
-@keyframes animate {
-  0%,
-  10%,
-  100% {
-    width: 0;
-  }
-  70%,
-  90% {
-    width: 100%;
-  }
+#toggleButton {
+  margin: 10px 10px 10px 10px;
 }

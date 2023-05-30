@@ -1,0 +1,73 @@
+.dark {
+  background-color: #333;
+  color: #fff;
+  .game-board .board-row .square {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+  .textAnimation {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    font-size: 5em;
+    color: #222;
+  }
+  .textAnimation::before {
+    content: attr(data-text);
+    position: absolute;
+    color: #fff;
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid #fff;
+    animation: animate 6s linear infinite;
+    filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 53px #fff);
+  }
+}
+
+.light {
+  background-color: #fff;
+  color: #333;
+  .game-board .board-row .square {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+  }
+  .textAnimation {
+    margin: auto;
+    text-align: center;
+    position: relative;
+    font-size: 5em;
+    color: #ebebeb;
+  }
+  .textAnimation::before {
+    content: attr(data-text);
+    position: absolute;
+    color: #222;
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid #222;
+    animation: animate 6s linear infinite;
+    filter: drop-shadow(0 0 20px #222) drop-shadow(0 0 53px #222);
+  }
+}
+
+button {
+  width: 120px;
+  border-radius: 15px 15px 15px 15px;
+  padding: 3px 5px 3px 5px;
+}
+
+@keyframes animate {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}

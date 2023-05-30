@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./public/darkMode.css";
+import "./darkMode.css";
 
 function Square({ value, onSquareClick }) {
   return (
@@ -61,6 +61,17 @@ export default function Game() {
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
@@ -93,33 +104,19 @@ export default function Game() {
     );
   });
 
-  function ThemeSwitch() {
-    const toggleTheme = () => {
-      if (theme === "light") {
-        setTheme("dark");
-      } else {
-        setTheme("light");
-      }
-    };
-    useEffect(() => {
-      document.body.className = theme;
-    }, [theme]);
-
-    return (
-      <div className={`ThemeSwitch ${theme}`}>
-        <button onClick={toggleTheme}>Toggle Theme</button>
-      </div>
-    );
-  }
-
   return (
     <div className="game">
       <div className="game-board currentMoveStatus">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-        <div className="currentMoveStatus">{currentDescription}</div>
-        <ol>{moves}</ol>
+        <div className="currentMoveStatus">
+          <div className={`ThemeSwitch ${theme}`} id="toggleButton">
+            <button onClick={toggleTheme}>Toggle Theme</button>
+          </div>
+          <div className="currentMoveStatus">{currentDescription}</div>
+          <ul>{moves}</ul>
+        </div>
       </div>
     </div>
   );
